@@ -1,0 +1,103 @@
+=>can we use lambda expression without functional interface.
+lambda expression can be used in a return statement. The return type of the method in which a lambda expression is 
+used in a return statement must be a functional interface.
+ss============================================Lambda Expression====================================================
+=>Lambda expression is anonymous function having no name, no modifier, no return type.
+=>Advantage:- Reduces the lines of code, to write more readable, maintainble and concise code.
+=>Rules:-if the body of lambda expression contain only one statement then curly bracess are optional.
+        -java compiler also inter the type of variable passed in argument hence type of optional.
+============================================Functional Interface==================================================
+->If the interface contaions only one abstract method then it is functiuonal interface
+  e.g->Runnable, callable, comparable.
+->To call lambda expression we required functional interface.
+=>Runnable:- is not a generic interface,  runnable interface has a run( ) method that does not return anything.
+=>Callable:- allows us to specify the type of result that will be returned by the call() method, 
+             Callable interface has a call( ) method that returns a value.
+=>comparable :-  comparable object is capable of comparing itself with another object.  compareTo(Object). it present  java.lang.Comparable
+=>comparator:-  Comparator is external to the element type we are comparing. It’s a separate class. We create multiple separate classes (that implement Comparator) to compare by different members,  Method -compare(), sort() 
+
+Question:=What will happen if we write two overloaded abstract methods in a functional interface?
+====================================================================================================
+Ans-> It would be a compiler error. The compiler does not consider the return type.
+      we cannot declare two methods with the same signature and different return types. It will throw a compile-time error
+
+================================why default methods in java 8 ===========================================================
+They allow us to add new methods to an interface that are automatically available in the implementations.
+=> To provide backward compatibility for old interfaces so that they can have new methods without affecting existing code.
+
+==================Stream API==================================================================================
+=>Stream API is basically perform bulk operation and process the object of collecton.
+=> Intermediate Operations -> intermediate operations modify the objects in the stream.
+=>Terminal Operations -> terminal operations get the final output you want.
+
+=>Creating Streams  => Intermediate Operations   => Terminal Operations
+concat()               filter()                      forEach()
+empty()                map()                         collect()
+generate()             flatMap()                     min()
+iterate()              distinct()                    max()
+of()                   sorted()                      findFirst()
+                       limit()                       findAny()
+                       skip()                        count()
+                                                     toArray()
+==================================== map() and flatMap()======================================================================
+=>The map() operation is used to transform each element of a stream into another object using a given function. It returns a new stream containing the transformed elements in the same order as the original stream.
+This transformation is one-to-one, meaning each input element produces exactly one output element. So, if there are N elements in the stream, the map() operation will produce a new stream of N elements.
+
+ =>flatMap() when we need to transform each element into multiple elements, such as when dealing with nested collections.
+==============================================Method reference================================================================
+=>Method reference are a spacial type of lambda expression, they are used to create simple lambda expression
+  by referencing existing method, each time when we are using lambda expression to just referring a method we can replace our lambda 
+  expression with method reference.
+=>Why use:- Method reference is used to refer to a method of functional interface. It is a compact and easy form of 
+            Lambda expression and also minimizes lines of code even more than Lambda expression
+  .Satic method
+  .Instance method of particular object.
+==========================================Optional class=============================================================================
+=>To Avoid the NullPointerException. It can crash our code. And it is very hard to avoid
+   it without using too many null checks. So, to overcome this, Java 8 has introduced a new class Optional in java
+Method:- isPresent(), ofNullable(), isEmpty()
+
+Where Use:- The Optional class in Java 8 is a container object which is used to contain a value that might 
+              or might not be present.
+ Simple Way: -Optional in the return of a method provides a clear intention of what we should expect from that method: it returns something or nothing
+
+==============================================Supplier and Consumer================================================================
+Supplier- supplier is any method which takes no arguments and return a value. its job is literally to supply an instance of an expected class 
+          for instance, every reference to a getter method is a supplier.
+Cousumer:- Cousumer is any method which takes arguments and return nothing. setter method is a good example.
+============================================Predicate and function=============================================================
+Predicate:- Predicate can take one type parameter which represents input type or argument type.and returns a booleans
+Function:-Function can take 2 type of parameter fIrst one represents input type argument and second one represent retun type.
+===================================================Date Time API==========================================================
+=>Date Time API :- Most of the Date Time principle classes provide various utility methods such as plus/minus days, weeks, months 
+e.g- java.time.LocalDate class
+java.time.LocalTime class
+java.time.LocalDateTime class
+java.time.MonthDay class
+java.time.OffsetTime class
+java.time.OffsetDateTime class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+ 

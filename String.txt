@@ -1,0 +1,84 @@
+->String is non-primitive data type, string is the sequence of character(Array of character)
+->string is implement of three interface 
+      1.Char Sequence,
+      2.Serializable,
+      3.comparable
+->Where ever create string class object that object alway immutable.
+->To create String there are thee classes.1.String
+                                          2.String Buffer
+                                          3.String Builder
+
+->what is String immutability concept & why String object are immutable.
+
+Ans->Immutable means Unchangeable, immutable concept is used for "String object" i.e- String object are immutable,
+     it mean's once's string object is created, it's data or state can not be changed, but a new string object is created..
+=>how to create immutable class:-
+- class must be declared as final so that child classes can’t be created.
+-Data members in the class must be declared private so that direct access is not allowed.
+-Data members in the class must be declared as final so that we can’t change the value of it after object creation.
+
+=============Fina and Immutablelity===========================================
+
+->String class final isliye bnaya jata hai, taaki string class ki properties koi or use na kare.
+->Final is the keyword used with class, method and variable, but immutablity is the concept used for object.
+->if class is final can not access properties one class to another class, can not extends.
+->if method is final can not override, if variable is final can not chnages the variable value.
+
+==================================Equlas() and == operator. ============================================ 
+
+->equals() method compares two strings and returns true if all characters match in both strings, else returns false.
+->== operator compares the reference or memory location of objects in a heap, whether they point to the same location or not.
+
+ ==============Object Class Method============================================================
+toString() 
+hashCode()
+equals(Object obj) 
+finalize()
+getClass()
+clone() method
+wait(), notify() notifyAll() methods
+
+====================HashCode() and Equal() method=======================================
+==>>equals verifies the equality of two objects. It’s default implementation 
+simply checks the object references of two objects to verify their equality. By default, 
+two objects are equal if and only if they refer to the same memory location.
+ Most Java classes override this method to provide their own comparison logic.
+
+==>>hashcode() – returns a unique integer value for the object in runtime. By default, 
+Integer value is derived from the memory address of the object in the heap (but it’s not mandatory).
+ The object’s hash code is used for determining the index location when this object 
+needs to be stored in some HashTable like data structure.
+
+=>It returns the hashcode value as an Integer. Hashcode value is mostly used in hashing 
+based collections like HashMap, HashSet, HashTable….etc. This method must 
+be overridden in every class which overrides equals() method.
+
+===========================String , String Buffer , String Builder======================================
+             String                          StringBuffer                                              StringBuilder
+
+storage:-    Heap Area                       Heap Area                                                Heap Area
+Object:-     Create immutable object         Create mutable object                                    Create mutable object
+Treadsafe:-  String is not thread safe.      All method are synchronized and thread safe              Non-synchronized and not thread safe.
+Performance:- Slow                           fast compaire to string                                  fast compaire to String buffer.
+Memory:-     Consume more memory             consume less memory                                      consume less memory
+            (String ki value ko baar baar)
+             changes karenge to zyada memory)
+               allocate karega.
+  
+==>>Object cloning refers to the creation of an exact copy of an object. It creates a new instance of the 
+    class of the current object and initializes all its fields with exactly the contents of the corresponding fields of this object.
+    Method:- clone()
+//A test class whose objects are cloned 
+class Test { 
+    int x, y; 
+    Test() 
+    { 
+        x = 10; 
+        y = 20; 
+    } 
+} 
+
+
+
+
+

@@ -1,0 +1,41 @@
+MultiTasking:- Performing multiple task of single time, 
+MultiProcessing:-when one system is connected to multiple processor in order to complete task.
+=> MultiThreading:- Excuting multiple threads at a single time.
+
+=>Two way to create thread:- 1. By extends thread class, 2. By implements Runnable interface.
+
+>>>>By implements Runnable interface is batter>>>>
+
+=>When you extend Thread class, we can’t extend any other class which we require. 
+  Java does not allow inheriting more than one class). When we implement Runnable, 
+   we can save a space for our class to extend any other class in future.'
+
+=>When you extends Thread class, each of your thread creates unique object and associate with it. 
+=>When you implements Runnable, it shares the same object to multiple threads.
+
+=============================Thread and Process=============================================================
+=>Thread:- thread is required synchronization, thread share same address space, thread is light wegiht.
+ ++Thread class Method:- run(), start(), Sleep()
+=>Process:- Process not required synchronization, each process has diffrent address space, process is heavy weight.
+================================Light wegight and Heavy Weight==================================================
+=>Heavyweight:-Heavyweight components like "AWT" components must be drawn using native GUI on a specific platform.
+=>Light wegight:-lightweight components like "Swing" components are drawn by java
+======================================Daemon Thread======================================================= 
+=>Which run in the background of another thread, it provide service to other thread for e.g- Garbage Collector.
+   Daemon thread method:- setDaemon(), isDaemon() both return boolean(ture/false)
+========================================Sleep() and Yield()==================================================================
+
+Sleep():- if any thread does not want to perform any operation for particular task.
+Yield:-It stop the current executing thread and provide chance to another thread of same or higher priorty to excuite.
+
+=================================different states of a thread, or what is thread lifecycle==============================
+New
+Runnable
+Blocked
+Waiting
+Timed Waiting
+Terminated
+=====================================join()==============================================================
+join(): When the join() method is invoked, the current thread stops its execution and the thread goes into the wait state. The current thread remains in the wait state until the thread on which the join() method is invoked has achieved its dead state.
+
+

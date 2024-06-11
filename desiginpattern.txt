@@ -1,0 +1,66 @@
+====================== Bean lifecycle============================================================
+=>>The lifecycle of any object means when & how it is born, how it behaves throughout its life, and when & how it dies. Similarly, the bean life cycle refers to when & how the bean is instantiated, what action it performs until it lives, and when & how it is destroyed.
+
+Container Started => Bean Instantiated =>Dependecncies Injected =>Custom Init()Method =>Custom utility method => Custome Destroy() method.
+->Bean Lifecycle Callback Methods
+         .Post-initialization callback methods
+         .Pre-destruction callback methods
+=====================================Builder Design Pattern=================================================
+
+=>Builder Design Pattern-> suppose  while creating when object contain may attributes there are may problem exits.
+        1.we have to pass many arguments to create object.
+        2.some parameters might be optional.
+        3.factory lass takes all responsibility for creating object. if the object is heavy then all complexity is the part of factory class.
+->so in builder pattern be crate object step by step and finally retun object with desired values of attributes.
+  (immutable object banane me bahut help krta hai, jisko hum change na kar ske)
+
+=================================Factory Design Pattern=============================================================
+
+When there is superclass and multiple subclass and we want to get object of subclass based on input and requrement.
+ then we create factory class which takes the responsibility of creating object of class based on input.
+
+=>Advantage:- 1. Focus on creating object for interface rahther than implementation.
+              2.Loose coupling more robust code.
+========================================(Bean scop)== singleton(default*)=============================================================
+1. singleton(default*)
+Scopes a single bean definition to a single object instance per Spring IoC container.
+
+=>class must ensure that only single instance should be created and single object can be used by all other classes.
+=>Advantages:- Saves memory because object is not created at each request. Only single instance is reused again and again.
+=>Usage of Singleton design pattern:- Singleton pattern is mostly used in multi-threaded and database applications. 
+
+=>>>>Break>>>Serialization is used to convert an object of a byte stream and save in a file or send it over a project.
+            Suppose we serialize an object of a singleton class. Then if we de-serialize that object it will 
+             create a new instance and hence break the singleton pattern.
+                                    
+=>How to create Singleton design pattern?
+.Static member: It gets memory only once because of static, itcontains the instance of the Singleton class.
+.Private constructor: It will prevent to instantiate the Singleton class from outside the class.
+.Static factory method: This provides the global point of access to the Singleton object and returns the instance to the caller.
+public class ASingleton {
+	private static ASingleton instance = null;
+	private ASingleton() {
+	}
+	public static ASingleton getInstance() {
+		if (instance == null) {
+			instance = new ASingleton();
+	             }
+		return instance;
+	}}
+===========================================================================================================================
+2. prototype:-
+Scopes a single bean definition to any number of object instances.->cloning of an existing object instead of creating new one and can also be customized 
+  as per the requirement.
+
+3. request ->Scopes a single bean definition to the lifecycle of a single HTTP request; that is each and every 
+HTTP request will have its own instance of a bean created off the back of a single bean definition.
+Only valid in the context of a web-aware Spring ApplicationContext.
+
+4. session ->Scopes a single bean definition to the lifecycle of a HTTP Session. Only valid in the context of a web-aware Spring ApplicationContext.
+
+5. global session ->Scopes a single bean definition to the lifecycle of a global HTTP Session. 
+Typically only valid when used in a portlet context. Only valid in the context of a web-aware Spring ApplicationContext.
+
+
+
+

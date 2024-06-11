@@ -1,0 +1,29 @@
+=>Monolithic architecture:- .Multiple components are combined in single large application
+                            .Single code based
+                            .Deployed in single bundle.
+                            .change in one service then whole application in re-deployed.
+                            .Developers has to communicate.
+=>Microservices architecture:- .Large application are divide in to samall parts.
+                               .diffrent code base
+                               .Each module managed independently
+                               .Each module communicate through rest api.
+
+=>Service Registory is aslo microserives it means it also spring boot application
+  .we add depedency in pom.xml file(spring-cloud-starter-netflix-eureka-server)
+  .add annotation in main class (@EnableEureka server)
+  .we adding some cofiguration in application.yml file like hostname, portname, service name
+  .whatever service we are create in all service put depedency add in pom file( spring-cloud-starter-netflix-eureka-server)
+              depedency Management, spring cloud depedency.
+  .and add annoation in main class in client service (@EnableEurekaClient)
+=> Create Configuration class here declear Bean and calling client service whatever created calling through restTemplate.
+    and also used LoadBalancing.
+============================Main Component microservices===============================
+API Gateway:- The API Gateway is a central entry point for external clients to interact with the microservices.
+              It manages requests, handles authentication, and routes requests to the appropriate microservices.
+Service Registry and Discovery: This component keeps track of the locations and network addresses of 
+                               all microservices in the system. Service discovery ensures that services can 
+                                locate and communicate with each other dynamically.
+Containerization:- Containers, such as Docker, Jenkins , encapsulate microservices and their dependencies.
+                   tools,manage the deployment.
+
+LoadBalancing:- agar multiple instances rahta hai, load ko balance krne ke liye....loadbalance annotation use krte h.

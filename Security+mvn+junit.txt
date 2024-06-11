@@ -1,0 +1,99 @@
+==============Maven commands:-========================
+mvn --version.
+mvn compile (compiles source files)
+mvn test-compile (compiles test files)
+mvn clean - deletes target directory.'
+mvn install
+mvn test - run unit tests.
+mvn package - creates the jar.
+help:effective-settings.
+help:effective-pom.
+=>settings. xml, which allows us to specify which local and remote repositories it will use.
+C:\Users\karmvir.2156078\.m2\repository\org\apache\maven
+=====================Actuator===========================================
+=>Actuator is a set of features that provide monitoring and management capabilities for Spring Boot application.
+=>Advantage:- boosts productivity, reduces downtime.
+=>Dependency:- spring-boot-starter-actuator
+
+============================Junit=================================================
+JUnit is a software testing framework that helps developers test their applications.
+          #Junit4
+Annoatation:- @Test -annotation specifies that method is the test method.
+              @BeforeClass :- This will be executed before the first @Test annotated method, 
+              @Before:-method to be run before the Tesr7t method, 
+              @After,  -
+              @AfterClass  :- this annotation will be executed when all @Test annotated methods complete.
+
+          #Junit5 =>It's combind of three modules.
+           1.Junit Platform:-Test Engine API, Responsible for launching testing framework on jvm.
+           2.Junit Jupiter:- Provide new annotations, @TestFactory , @DisplayName, @BeforeEach , @AfterEach, @BeforeAll, @AfterAll 
+           3.Junit Vintage:-provide support for junit3, 4 backend compatibility.
+
+==================================Why We Shouldn’t Test Private Methods============================
+-We have dead code in our private method.
+-Our private method is too complex and should belong to another class.
+-Our method wasn’t meant to be private in the first place.
+
+#Advantage of unit testing.
+1.find bugs early, Easy to fix bugs, Reduce the cost and time.
+
+#How to perform unit test.
+=>JUNIT- most popular framework for unit testing. Version :- Junit4, Junit5
+
+#What is Mockito
+=>it's mocking freamework, Mocking it means fake chij bnana, suppose ek repository bna rakha hai jo database se intract kr rha hai,
+testing layer pe data base nhi hai,ya data base use nhi krna chaah rhe h, then phir bhi logic check krna hai sahi kaam kr rha hai ya nhi, us case me hum mockito use karenge, repository ka copy bna ke dega uske help se hum apna code ka logic test kr payenge.
+
+
+
+================================how to secure the rest api in spring boot===========================
+
+Step 1: Define the API Key and Secret.
+Step 2: Implement an Authentication Filter.
+Step 3: Configure Spring Security.
+Step 4: Test Secured API.
+
+How to implement String security:
+1. add depedency in pom.xml file - spring-boot-starter-security
+2.Add API Key and Secret to application.properties ->
+                                                     api.key=my-api-key
+                                                     api.secret=my-secret
+3. Implement an Authentication Filter :-
+
+@Component
+public class ApiKeyAuthFilter extends OncePerRequestFilter {
+@Value("${api.key}")
+    private String apiKey;
+    @Value("${api.secret}")
+    private String apiSecret;
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
+        
+        // Get the API key and secret from request headers
+        String requestApiKey = request.getHeader("X-API-KEY");
+        String requestApiSecret = request.getHeader("X-API-SECRET");
+        // Validate the key and secret
+        if (apiKey.equals(requestApiKey) && apiSecret.equals(requestApiSecret)) {
+            // Continue processing the request
+            filterChain.doFilter(request, response);
+        } else {
+            // Reject the request and send an unauthorized error
+            response.setStatus(HttpStatus.UNAUTHORIZED.value());
+            response.getWriter().write("Unauthorized");
+        }
+4.Configure Spring Security:- 
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@Autowired
+    private ApiKeyAuthFilter apiKeyAuthFilter;
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .csrf().disable() // Disabling CSRF protection
+            .addFilterBefore(apiKeyAuthFilter, UsernamePasswordAuthenticationFilter.class) // Add our custom filter
+            .authorizeRequests()
+                .anyRequest().authenticated(); // All requests must be authenticated
+    }

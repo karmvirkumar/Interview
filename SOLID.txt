@@ -1,0 +1,114 @@
+Why used SOLID :-It reduces the dependencies so that a block of code can be changed without affecting the other code blocks.
+                 By using the principles, the system is maintainable, testable, scalable, and reusable.
+
+=>SOLID Principles :- 1.Single Responsibility Principle (SRP)
+                      2.Open-Closed Principle (OCP)
+                      3.Liskov Substitution Principle (LSP)
+                      4.Interface Segregation Principle (ISP)
+                      5.Dependency Inversion Principle (DIP)
+
+1.Single Responsibility Principle (SRP):-this principle states that a class, package/API component should have only one reason to change”
+                                         which means every class should have a single responsibility.
+e.g:- Suppose, Employee is a class having three methods, printEmployeeDetails(), calculateSalary(), and addEmployee().
+      the Employee class has three responsibilities to print the details of Employee, calculate Salary, and database.
+      By using the single responsibility principle, we can separate these functionalities into three separate classes that is the way.
+
+2.Open-Closed Principle (OCP):- open-closed principle states that according to new requirements the module should be open for extension but closed for modification.
+  
+Suppose EmployeeDao is a class having two method  printEmployeeDetails(),calculateSalary()  that class and method alredy tested and live, 
+if comming new requrement addListOfEmployee that is new requrement, wo don't change existing method and class, 
+just we create a new interface EmployeeDao and also create new class AddEmployee writing method addListOfEmployee() and implement EmployeeDao.
+if comming or any other requrement just create class inside class write method and implement EmployeeDao.
+interface EmployeeDao{
+       public void printEmployeeDetails(){
+  }
+}
+
+class Salary implements EmployeeDao{
+   @Override
+   public void calculateSalary(){
+  }
+}
+
+class Addemployee implements EmployeeDao{
+   @Override
+   public void addListOfEmployee(){
+  }
+}
+3.Liskov Substitution Principle (LSP):-  If class B is subtype of class A, then we should be able to replace object of A with B without breaking
+                                         the behaviour of the program. subclass should extend the capability of parent class.
+
+4.Interface Segregation Principle (ISP):- Interfaces should be such, that client should not implement unnecessary function they do not need.
+    
+suppose We create interface Company inside Company interface create a three method, taskassign(), developApplication(), testApplication()
+and create a Class Client implements Company interface, all three method implemented inside client class, but client work only for taskassign, not development and              testing, bothe method unnecessary in this class. 
+solution:- we create samall - samall interface.
+interface Company {
+    void taskassign();
+    void developApplication();
+    void testApplication();
+}
+class Client implements Company{
+    public void taskassign(){
+    }
+    public void developApplication(){
+    }
+   public void testApplication(){
+    }
+}
+
+5.Dependency Inversion Principle (DIP):- class should depend on interface rather than concrete class.
+suppose:- Create two interface, Department and Developer, inside Department interface create two concrete class- HRDpt, AccountDpt
+                                                          inside Developer interface create two concrete class- JavaDev, PythonDev
+Create another class Company inside class direct assign concrete class object that is wrong. solution is take a interface object assign constructor injection.
+
+concrete class:-Java classes that have code that implements all their methods, and method bodies are complete. 
+                Concrete classes in Java are known as 100% implemented classes
+
+Class Company{  //wrong
+   private final HRDpt department;
+   private final JavaDev developer;
+   
+    public Compant(){
+         department = new HRDpt();
+         developer = new JavaDev();
+   }
+}
+
+Class Company{  //Right
+   private final Department department;
+   private final Developer developer;
+
+    public Company (Department department, Developer developer){
+         this.department = department;
+         this.developer = developer;
+    }
+}
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

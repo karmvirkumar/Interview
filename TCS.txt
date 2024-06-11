@@ -1,0 +1,24 @@
+
+===> Abstract class:- restricted class that cannot be used to create objects,to provide a common definition of a base class that multiple derived classes can share
+===============================Spring Actuator==============================================
+=>Spring Actuator:- Spring Boot’s ‘Actuator’ dependency is used to monitor and manage the Spring web application.
+                   We can use it to monitor and manage the application with the help of HTTP endpoints.
+Advantage:- reduces downtime, boosts productivity, 
+
+===================================> IS Rest API is Stateless or not if yes then how & why???=======================================
+  Yes Rest API is Stateless, because each request needs to include all the information necessary for processing it,
+  REST APIs do not require any server-side sessions. Server applications are not allowed to store any data related to a client request.
+
+
+========================================>how to change embedded server in spring boot???===============================================
+Step1.Adding Dependencies -(spring-boot-starter-undertow(अंडरटो)- Undertow is lightweight and high-performance web server from JBoss.
+Step2.spring-boot-starter-web comes with Embedded Tomcat. We need to exclude the dependency.
+Step3.Changing the Default Server Port.
+Step4.Configuring Server-Specific Properties. what ever server used. depedens on requrement.
+
+=>How do I enable cache in Spring Boot?
+  - Add Depedency (Spring-Boot-Satrter-Cache)
+  -We can enable caching in the Spring Boot application by using the annotation @EnableCaching
+
+
+

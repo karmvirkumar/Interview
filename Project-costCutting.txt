@@ -1,0 +1,80 @@
+=>Cost Savings Strategies for Backend Developers.
+ 
++++++++++In Code Level++++++++++++
+1.Java Code Optimization(if code less in our project, The size of the project will reduce. and  Will take less memory space. )
+2.Optimizing Memory and CPU on whatever cloud use depedends on requrement.
+3.Implementing Caching to Reduce Requests:-
+ Caching is a layer between the actual database and our application.It reduces the time taken to obtain the required
+ data - as it fetches from memory instead of directly hitting the database.It is useful when you have to fetch the same data multiple times.
+
+============================= SDLC(Waterfall Model )======================================================
+=>. Follow the SDLC(Waterfall Model )
+   a.Planning phase (PROVIDE CLEAR REQUIREMENTS).
+   b.Coding phase(coding phase includes system design in an integrated development environment. It also includes static code analysis and code review.
+   c.Building Phase
+   d.Testing Phase
+   e.Release Phase
+   f.Deploy Phase(released into the production environment).
+
++++++++++++++++Agile Model is batter than waterfall model+++++++++++
+=>Agile focuses on customer feedback, collaboration, small and rapid(small) releases.
+  Its purpose is to manage complex projects.it can quickly adapt according to the changes made on time during the project life.
+  It has a small team size. 
+====================================GIT vs SVN====================================================================
+
+SVN:- SVN is a centralized version control system, SVN is better suited for large codebases with frequent changes.
+GIT:- while Git is a distributed version control system, Git is better for smaller projects with a more de-centralized work flow.
+
+
+Join:- Join operation combines data or rows from two or more tables based on a common field
+#Join
+SELECT s.roll_no, s.name, s.address, s.phone, s.age, sc.course_id
+FROM Student s JOIN StudentCourse sc ON s.roll_no = sc.roll_no;
+
+#INNER JOIN :-Returns records that have matching values in both tables
+SELECT StudentCourse.COURSE_ID, Student.NAME, Student.AGE FROM Student
+INNER JOIN StudentCourse ON Student.ROLL_NO = StudentCourse.ROLL_NO;
+
+#LEFT JOIN:- Returns all records from the left table, and the matched records from the right table
+SELECT Student.NAME,StudentCourse.COURSE_ID 
+FROM Student LEFT JOIN StudentCourse ON StudentCourse.ROLL_NO = Student.ROLL_NO;
+
+#RIGHT JOIN:- Returns all records from the right table, and the matched records from the left table
+SELECT Student.NAME,StudentCourse.COURSE_ID 
+FROM Student RIGHT JOIN StudentCourse ON StudentCourse.ROLL_NO = Student.ROLL_NO;
+
+FULL JOIN :-Returns all records when there is a match in either left or right table
+SELECT Student.NAME,StudentCourse.COURSE_ID FROM Student
+FULL JOIN StudentCourse ON StudentCourse.ROLL_NO = Student.ROLL_NO;
+
+=>WHERE clause allows to filter data from specific rows (individual rows) from a table based on certain conditions.
+=>HAVING clause allows to filter data from a group of rows in a query based on conditions involving aggregate values
+=>The WHERE clause is faster than HAVING
+
+=> primary key is used to ensure that data in the specific column is unique. A column cannot have NULL values.
+=>foreign key is a column or group of columns in a relational database table that provides a link between data in two tables.
+          It can also contain NULL values.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+

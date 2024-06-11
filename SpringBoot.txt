@@ -1,0 +1,258 @@
+=>Spring boot version - 3.2.5, Spring framework version -3.2.5
+Features:- SSL Bundle Reloading, Support for RestClient, Support for JdbcClient, Support for Jetty 12.
+RestClient - synchronous client with a fluent API.(RestClient customClient = RestClient.builder(), restClient.get().uri("https://example.com/orders
+WebClient - non-blocking, reactive client with fluent API.
+RestTemplate - synchronous client with template method API.
+
+What is @SpringBootApplication -> The @SpringBootApplication annotaion is combination of three annotations.
+.@SpringBootConfiguration, @EnableAutoConfiguration, @ComponentScan.
+
+=> @Autoconfiguration:-auto-configuration helps us automatically configure a Spring application based on the dependencies that are present on the classpath
+=>@ComponentScan:- @ComponentScan tells Spring in which packages you have annotated classes which should be managed by Spring. So,
+    for example, if you have a class annotated with @Controller which is in a package which is not scanned by Spring, you will not be able to use it as Spring controller.
+       Classes annotated with @Configuration is a new way of configuring Spring using annotations instead of XML files (it's called Java configuration). 
+         Spring needs to know which packages contain spring beans, otherwise you would have to register each bean individually. That's what @ComponentScan is used for.
+=>@SpringBootConfiguration annotation tells us that a class is a configuration class, and
+=>@EnableAutoConfiguration automatically configures the Spring application based on its
+         +++++++++++exclude++++++++++++
+=>@SpringBootApplication(exclude = { SomeBean.class }):- If we want some auto configurations to be ignored, then we should use the exclude
+
+=>Diff. b/w @Controller and @Restcontroller
+@Controller -> Is used mark classes as spring mvc controller.
+@RestController -> Combination of two annoation.( @Controller and @ResponseBody)
+
+=>@PathVariable annotation is used to extract data from the URL path. It allows you to define 
+                placeholders in your request mapping URL and bind those placeholders to method parameters
+=>Http Method:=
+Get- Get method is used to retrive data form the database, for example if we want to get a list of users we can use get method.
+Post-Post method is used to create a new data on the database, for example if we want to create a new user then we can use post method.
+Put-put method is used to update a data on database, for example if we want to udate an existing user we can use put method.
+Patch- patch method is used to partially update data on the database , if we want to update only some feild of an existing user.
+
+=>@RequestParam annotation is used to extract data from the query parameters in the request URL.
+                Query parameters are the key-value pairs 
+=>@ModelAttribute: This annotation binds method parameter and refers to the model object.
+=>@RequestMapping: To map the incoming HTTP requests with the handler methods inside the controller class
+=>@Primary:- annotation sets the bean preference and it is used with the @Bean or @Component etc stereotype annotations.
+=>@Qualifier:- is usually used with @Autowired or @Inject annotation.
+=>@Bean:- annotation is used to indicate that a method instantiates, configures, and initializes a new object to be managed by the Spring IoC container.
+=>@Configuration:-  annotation is part of the spring core framework. Spring Configuration annotation indicates that the class has @Bean definition methods. 
+                 So Spring container can process the class and generate Spring Beans to be used in the application
+=>@Autowired:- is an annotation used in Spring Boot to enable automatic dependency injection.
+=>@Qualifier:- is for specifying which exact bean to inject when there are multiple beans of the same type.
+=============================@Transactional==========================================================
+ @Transactional annotation, it automatically creates a transaction around the annotated code and manages the transaction lifecycle.
+  . By using @Transactional, we can avoid writing boilerplate code to create and manage transactions manually.
+  .Transactions ensure that multiple database operations are executed atomically, which helps to maintain data consistency and integrity.
+  .Transactions can improve database performance by reducing the number of round trips between the application and the database.
+
+===============================Spring MVC Architecture=================================================
+->First, the request will come in through the browser and it will be received by Dispatcher Servlet, which will act as Front Controller.
+->Dispatcher Servlet will take the help of handler mapping and get to know the controller class name associated with the request.
+->After this, it will transfer the request to the controller, and then the controller 
+    will process the request by executing appropriate methods based on used GET or POST method.
+->And it will return the ModelAndView object back to the dispatcher servlet.
+->Now, the dispatcher servlet sends the model object to the view resolver in xml file to get the view page.
+->And finally, the dispatcher servlet will pass the model object to the view page to display the result.
+
+====================*****Why to use spring boot over spring freamework*****=================================
+=>Spring boot isa framework built on top of the spring freamwork to simplify the development and deployment of spring-based application. 1.Simplified configuration-Reduced boilerPlate code, 2. Depedency Management- provide starter dependencies.
+3.Embedded Web server e.g- Tomcat. 4. Application packaging-JAR/WAR, 5.production ready features like health checks, logging
+
+#Spring.
+Spring is an open-source lightweight framework widely used to develop enterprise applications.
+The most important feature of the Spring Framework is dependency injection
+To run the Spring application, we need to set the server explicitly.
+create a Spring application, the developers write lots of code.
+It doesn’t provide support for the in-memory database.
+Developers have to define dependencies manually in the pom.xml file.
+
+#Spring Boot.
+
+Using Spring Boot to develop REST APIs.
+The most important feature of the Spring Boot is Autoconfiguration.
+Spring Boot provides embedded servers such as Tomcat 
+It reduces the lines of code.
+It provides support for the in-memory database such as H2.
+pom.xml file internally handles the required dependencies.
+Advantage:There is no need to deploy WAR files while using SpringBoot, doesn't require XML configuration.
+
+=================================Can we create a Non-web application in spring boot?=================================
+=> Yes...by excluding web-starter dependecy.
+
+==================================Spring MVC Interceptor=========================================== 
+Spring MVC Interceptor acts as a middleware in MVC applications. While executing the requests,
+ we can process the requests also after, before or during the execution of the requests. 
+ We can make certain changes and can process the requests.
+============================= integrate the Database with the Spring MVC Project====================================
+Step 1: Select the database and load driver.
+Step 2: Configure Spring Data JPA
+Step 3: Create Beans (entity object)
+Step 4: DataSource Configuration
+Step 5: DAO Layer Implementation
+Step 6: Controller and Services of Spring MVC need to be used.
+=======================================dependency injection============================================ 
+purpose of DI? With dependency injection, objects don't define their 
+                          dependencies themselves, the dependencies are injected to them as needed.
+ benefit ? The objects don't need to know where and how to get their dependencies,
+                      which results in loose coupling between objects, which makes them a lot easier to test.
+How is it implemented ? Usually a container manages the lifecycle of objects and their 
+                       dependencies based on a configuration file or annotations.
+
+==================================IOC========================================
+=>IOC-It contains object creation for the longer ways to use and injects dependencies within the class.
+        (like After the object is no longer used, and is eligible for garbage collection, the garbage collector will destroy the object, 
+         remove the object from memory).
+=>Two types of IoC containers.
+  1.BeanFactory :- It supports only Singleton and Prototype bean scopes.BeanFactory will create a bean object when the getBean() method is called.
+                          (Lazy initialization.)
+  2.ApplicationContext:- It supports all types of bean scopes such as Singleton, Prototype, Request, Session,
+                          -ApplicationContext loads all the beans and creates objects at the time (Eager initialization.)
+
+=>When an object is destroyed?
+================================
+      - Just before destroying any object, the garbage collector always calls finalize() method to perform clean-up activities on that object
+     protected void finalize() throws Throwable
+    {
+        try {
+        }
+        catch (Throwable e) {
+ 
+            throw e;
+        }
+        finally {
+            // Calling finalize() of Object class
+            super.finalize();
+        }
+=>Why Finally Method :- 
+      -finalize() method releases system resources before the garbage collector runs for a specific object.
+
+=>How Inject the object:-
+  private @Autowired AutowireCapableBeanFactory beanFactory;
+  public void doStuff() {
+   MyBean obj = new MyBean();
+   beanFactory.autowireBean(obj);
+}
+
+============================@PostConstruct,@PreDestroy =======================================================
+
+@PostConstruct annotation is used on a method that needs to be executed after dependency injection is done to perform any initialization.
+@PreDestroy annotation is used on methods as a callback notification to signal that the instance is in the process of being removed by the container.
+
+===========setter injection and constructor injection===================================
+
+=>If we use both constructor and setter injection, IOC container will use the setter injection. Changes: We can easily change the value by setter injection. It doesn't create a new bean instance always like constructor. So setter injection is flexible than constructor injection.
+
+   +++++++++++++++++ ++EXCEL -FILE++++++++How to upload EXCEL file data in database+++++++++
+=>suppose I have Excel file in the excel some amount of data store that data insert in database. first add dependency poi-ooxml (org.apache.poi) in pom.xml file.( POI-reading and writing files in Microsoft Office formats, Word, PowerPoint and Excel.)
+  and configuration in application.properties file(multipart.max-file-size=3MB), and (multipart.max-request-size=3MB).
+   1. Create helper class and write method and check that file is of excel type of not.
+                     public static boolean checkExcelFormate(MultipartFile file){
+                             file.getContentType();
+              }
+   2. create one more method convert excel to list of data.  public List<Data> convertExcelToListOfData(InputStream input){
+                                                                   List<Product> list = new ArrayList<>();
+                                                            }
+   3. and final create rest api and insert the data in database.
+                @PostMapping("/upload")
+                public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file){
+                     }
+        
+ ++++++++++++++++++++++++++++JSON++++++How to upload json file data in database++++++++++++++ 
+                                         
+=> Second way insert data json file...in database. 1. add depedency jackson-databind (com.fasterxml.jackson.core) in pom.xml file.
+         read json and write to db  through objectMapper just read the json file -> ObjectMapper mapper = new ObjectMapper().
+               (ObjectMapper:- ObjectMapper provides functionality for reading and writing JSON)
+                 Create class JsonFileReader :- ObjectMapper objectMapper = new ObjectMapper(); 
+                                                 objectMapper.readTree(new File("user.json"));
+           (Remember -SACHM23-SAM, upload json file) create model class......??
+
+===========================Spring Batch===========================================
+=> suppose i have csv file and database..... one side csv and another side database. in csv file sotre bulk of data..that data need to dumb in data base.
+   dono k bich me ek process hoga. transform that process is called batch.
+Adding Depedency in pom.xml file- spring-boot-starter-batch 
+Create BatchConfig class add
+@EnableBatchProcessing
+=> Schedule the Batch Job @Scheduled
+@Scheduled(cron = "0 0 0 * * ?") 
+application.properties file ->spring.batch.job.enabled=true
+
+    @Bean
+    public ItemReader<String> itemReader() { 
+        // Implement your item reader logic (e.g., read from a CSV file). 
+        // Return a reader for the input data. 
+    } 
+    @Bean
+    public ItemProcessor<String, String> itemProcessor() { 
+        // Implement your item processor logic (e.g., data transformation). 
+        // Return a processor for data processing. 
+    } 
+    @Bean
+    public ItemWriter<String> itemWriter() { 
+        // Implement your item writer logic (e.g., write to a file or database). 
+        // Return a writer for output data. 
+    } 
+=================================SessionFactory, Session=============================================
+
+SessionFactory is a factory class for Session objects. It is available for the whole application while a Session is only available for particular transaction.
+It is one instance per datasource/database.
+It is thread-safe.
+It is a heavyweight object, because it maintains data sources, mappings, hibernate configuration information etc.
+Sessionfactory will create and manage the sessions.
+4 datasources/databases, then you must create 4 session factory instances.
+sessionfactory is an immutable object and it will be created as a singleton while the server initializes itself.
+
+Session is short-lived while SessionFactory objects are long-lived. SessionFactory provides a second level cache and Session provides a first level cache.
+It is one instance per client/thread/one transaction.
+It is not thread-safe.
+It is lightweight.
+sessions will be opened using sessionfactory.openSession() and some database operations will be done finally session will be closed using session.close().
+
+============================first-level cache and second level =============Cache remove method:- evict(), clear()   
+=>first-level:- 
+->First level cache is associated with “session” object and other session objects in application can not see it.
+->The scope of cache objects is of session. Once session is closed, cached objects are gone forever.
+->First level cache is enabled by default and we can not disable it.
+->When we query an entity first time, it is retrieved from database and stored in first level cache associated with hibernate session.
+->If we query same object again with same session object, it will be loaded from cache and no sql query will be executed.
+->The loaded entity can be removed from session using evict() method. The next loading of this entity will again make a database call 
+   if it has been removed using evict() method.
+->The whole session cache can be removed using clear() method. It will remove all the entities stored in cache.
+Syntax:-    Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+=>second-level cache:-
+=>The second-level cache is shared across sessions and enables data to be cached across multiple requests.
+- second-level cache. This is an optional Cache that Hibernate provides. Unlike the first-level cache which is accessible only to 
+  the session that maintains it, Second-level Cache is accessible to all Sessions.
+
+>If a cached copy of the entity is present in first-level cache, it is returned as the result of load() method.
+->If there is no cached entity in the first-level cache, then the second-level cache is looked up for the cached entity.
+->If second-level cache has the cached entity, it is returned as the result of load() method. But, before returning the entity, 
+     it is stored in first level cache also so that the next invocation to load() method for that entity will return the entity
+     from the first level cache itself, and there will not be need to go to the second level cache again.
+->If the entity is not found in first level cache and second level cache also, then a database query is executed and the entity
+     is stored in both cache levels, before returning as the response to load() method.
+->Second-level cache validates itself for modified entities if the modification has been done through hibernate session APIs.
+
+how implement:-  add depedency in pom.xml file ->  org.hibernate->hibernate chache.
+                -spring.jpa.properties.hibernate.cache.use_second_level_cache=true in application.properties file.
+                -In Entity class use annotation @Cacheable or @Cache
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

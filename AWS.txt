@@ -1,0 +1,77 @@
+=>What is AWS- AWS stands for Amazon Web Services.
+ It provides different services such as infrastructure as a service (IaaS), platform as a service (PaaS) and packaged software as a service (SaaS).
+
+=> AWS provides the services to the customers
+Computing
+Programming models
+Database storage
+Networking
+
+=>Advantage:- 
+-Flexibility:-
+-Cost-effectiveness:-
+-Security:-AWS provides end-to-end security and privacy to customers.
+
+====================AWS- Service===========================================
+=>EC2:- EC2 stands for Amazon Elastic Compute Cloud, EC2 is a web service that provides resizable compute capacity in the cloud,
+   EC2 provide virtual computer where we install java, tomcate, mysql, whatever software requrement according to application install mannually.
+Steps Create Pipeline:-
+=========================
+Step1. Sign in to the AWS Management Console.
+Step2. Click on EC2 service.
+Step3. Click on the Launch Instance button to create a new instance.
+Step4. Choose Amazon Machine Image(AMI). like Amazon Linux, Red Hat
+Step5. Choose Instance Type like-  Memory, Instance storage etc.
+Step6. Configure Instance details- like- Number of instance, network, ip, 
+Step7. Add storage like- size, Device.
+Step8. Add Tags like - Name, Depatment.
+Step9. Configure Security Group like- SSH, HTTP, HTTPS, port
+Step10. Add server according to our requrement.
+
+=>AWS Elastic Beanstalk:- in this service just need to upload the code, no need to any software install mannually, Elastic Beanstalk automatically handles the deployment from capacity load balancing, auto-configuration, health monitoring at the same time.
+
+=>Amazon RDS(Relational Database Service):- this servrice provide relational batabse. managed SQL database service provided by Amazon Web Services (AWS). Amazon RDS supports an array of database engines to store and organize data. It also helps in relational database management tasks like data migration, backup, recovery and patching.
+
+=>Amazon Route 53:- this service connect domain through the IP address.
+
+=> Amazon S3( Simple Storage Service ):- this service is storage. storage built to retrieve any amount of data from anywhere.
+              S3 is a safe place to store the files.
+              It is Object-based storage, i.e., we can store the images, word files, pdf files
+==========================================AWS API Gateway===========================================================
+=>we can create an API that acts as a "front door" for applications to access data, business logic, or functionality from our back-end services such as applications running on Amazon Elastic Compute Cloud (Amazon EC2), code running on AWS Lambda, or any web application.
+=>AWS Lambda:- Lambda is used to encapsulate Data centre s, Lambda is a compute service where you can upload your code and create the Lambda function.
+              -Suppose User uploads an image to S3, S3 triggers an event, and this event is a Lambda function, 
+              -Lambda function takes this image, and then encode the image. When an image is encoded, it gets stored in S3
+
+=>AWS CLI :- is a tool that pulls all AWS services together into a central console, giving you easy control of multiple AWS services with a single tool.
+=> AWS AMI :- AMI stands for Amazon Machine Images, virtual image used to create a virtual machine within an EC2 instance.
+
+=>Life Cycle of AMI:-
+First, you need to create and register an AMI.
+You can use an AMI to launch EC2 instances.
+You can also copy an AMI to some different region.
+When AMI is no longer required, then you can also deregister it.
+
+=>Type of AMI:- EBS - backed Instances, Instance Store - backed Instances.
+
+=>What is SnowBall :- SnowBall is a small application that enables you to transfer terabytes of data inside and outside of the AWS environment.
+=>EBS ( Elastic Block storage ) is a block-level storage attached to EC2 instances, offering persistent and high-performance storage for applications like databases.
+=>What is DNS:- DNS stands for Domain Name System.(.com, .gov, .edu)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,114 @@
+======================================keyclock===================================================
+What is keyclock?
+
+=> open source identity and access management system for modern application and services,
+   in sort form that is security management system.
+
+Keyclock Features
+
+-Single-sign
+-Identity brokering and social login
+-Standard protocol support like OpenID connectr, OAuth
+
+=====================================AZURE========================================================
+=> What is Azure.
+Microsoft Azure is a cloud computing services created by Microsoft that hosts existing applications, streamline the development of a new application, It helps the building the application, testing, deploying, and managing applications and services through Microsoft-managed data centers.
+
+=> Azure provide multiple service like- Compute services, Application services, Network services,
+but in my project uses Data Service.
+Data services: This service is used to store data over the cloud that can be scaled according to the requirements. It includes Microsoft Azure Storage (Blob, Queue Table, and Azure File services), Azure SQL Database
+->Blob:- Azure Blob Storage allows you to store large amounts of unstructured object data
+
+================================What Is Azure Resource Manager?=======================================================
+=>Azure service we can use to manage and deploy resources using an infrastructure as code paradigm. It enables we to provision, modify, and delete resource.
+-resource:- include virtual machines (VMs), virtual networks, databases, web apps, and storage accounts
+-resource group:-Azure resource group enables you to manage multiple resources as a whole.
+-resource provider:-Azure that you can create resources in. For example, Microsoft Storage or Microsoft Compute.
+-Resource Manager template:-
+
+============>Azure API Gateway========================
+It serves as an entry point for our APIs and acts as an intermediary between our clients and our back-end services.
+=>Key Features of Azure API Gateway.
+=================================
+ -API Management:- Azure API Gateway provides a central platform for managing our APIs. It offers tools for designing, deploying our APIs effectively.
+ -Security and Authentication:-  Azure API Gateway offers various authentication and authorization mechanisms, including OAuth, API keys, 
+                                and client certificates, to ensure that your APIs are accessible only by authorized users or applications.
+ -Transformation and Routing: we can modify the request and response data of our APIs through request and response transformations.
+
+=>How Azure API Gateway Works:- Request Processing, Forwarding to Back-end Services.
+   Response Processing:-response from the back-end service can also be modified before being sent back to the client.
+   Response to Client:- Azure API Gateway sends the processed response to the client 
+
+=>>>Create Pipeline Azure<<<===
+
+Step1. Login azure account. after login over there multiple services like - Resource group, App service plains, App service, App congiguration, web configuration, cost management. 
+1st create resource group in side resource group add subcription and resource group(
+2nd create app service plans as well add name, choose operating system and  create app service.
+3rd create web app, add name, publish like- Code, Docker Container. And Runtime stack like java version choose OS. and also select server like tomcate. and create web app.
+Whatever names created web-app there are one option deployement center in there one opetion source just select whatever method choose for deployemnt depends on requrement Local git, butbuckit and deploye war file other wise code also.
+and code level add some congiguraton in pom.xml file. like -<groupId>com.microsoft.azure</groupId>,  <subscriptionId>xxx</subscriptionId>,<appName>demo</appName>
+
+==> diffrent between/ App service and Web service.<===
+Web Apps is a specific type of Azure App Service that focuses on hosting web applications, while Azure App Service is a broader category of PaaS offerings that includes Azure Web Apps and other related services.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+=>Advantage:- Data Security: Azure provides many of the things to secure data over the cloud-like Microsoft Defender for Cloud,
+                           Key Vault, Azure Information Protection, and many more.
+           Cost-Effective: Azure provides different pricing models that can help to save costs.
+
+=>Difference between IAAS, PAAS and SAAS.
+IAAS:- Infrastructure As A Service (IAAS)-Iaas providers manage and maintain the underlying infrastructure.
+PAAS:-Platform As A Service (PAAS)-PAAS is like a toolkit for developers to build and deploy applications.
+SAAS:-Software As A Service (SAAS) -SaaS providers manage both infrastructure and software applications.
+
+=>Deploy a ZIP package.
+.Deletion of files left over from a previous deployment.
+.Option to turn on the default build process, which includes package restore.
+.Deployment customization, including running deployment scripts.
+.Deployment logs.
+.A package size limit of 2048 MB.
+
+=>Create Jenkins pipeline
+Open Jenkins in a web browser.
+Select New Item.
+Enter a name for the job.
+Select Pipeline.
+Select OK.
+Select Pipeline.
+For Definition, select Pipeline script from SCM.(Source Code Management)
+For SCM, select Git.
+Enter the GitHub URL for your forked repo: https:\<forked_repo\>.git
+Select Save.
+
+=>Test your pipeline
+Go to the pipeline we created
+Select Build Now
+After the build completes, select Console Output to see build details.
+
+**Stored procedure is a prepared SQL query that we can save, so the query can be reused over and over again.
+   @Procedure(name = "Stored procedure name") we use in repository interface.
+==================================CORS=======Challanges in project=========================================================
+=>CORS errors happen when a webpage makes a request to a different domain than the one that served the page, 
+  and the server responds with an HTTP error because the “Origin” header in the request is not allowed by the server's CORS configuration
+  
+    HttpServletResponse response = (HttpServletResponse) res;
+
+    response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+    response.setHeader("Access-Control-Allow-Credentials", "true");
+    response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+    response.setHeader("Access-Control-Max-Age", "3600");
+    response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me");   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

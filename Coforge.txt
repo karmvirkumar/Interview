@@ -1,0 +1,39 @@
+=>Intern():- The method intern() creates an exact copy of a String object in the heap memory and stores it in the String constant pool.
+
+=>volatile:- keyword in Java is used to indicate that a variable's value can be modified by different threads
+
+=>String utility:-  A utility class in Java is a class that provides static methods that are accessible for use across an application.
+
+=>How to Create a Java Utility Class:- we use a public access modifier and also declare the class as final. The final keyword used when 
+                                       creating utility classes means that the class would remain unchangeable. It cannot be inherited.
+=>StringUtils Class Available utility Methods:-
+1.isBlank(String str): This method checks if a String is null, empty, or contains only whitespace characters. 
+                       It returns true if the String is blank, and false otherwise.
+2.remove(String str, char remove): This method removes all occurrences of a specified character from a String and returns the modified String.
+3.isNumeric(String str): This method checks if a String contains only numeric characters (0-9) 
+                         and optionally a minus sign at the beginning. It returns true if the String is numeric, and false otherwise.
+
++++++Diffrent b/w Collection and Collections ++++++++
+ =>Collection is a base interface for most collection classes, whereas Collections is a utility class
+
+=============================Serialization and Deserialization===================================================
+=>Serialization:- Serialization is a mechanism of writing the state of an object into a byte-stream.
+         Method:- writeObject() method of ObjectOutputStream class.
+=>reverse operation of serialization is called deserialization where byte-stream is converted into an object.
+         Method:- readObject() method of ObjectInputStream class.
+
+========================================Main Mothod -Override, Overloaded -> YES Ya NO===================================================
+Yes, we can overload the main() method in Java.Java class can have any number of overloaded main() methods. 
+  But the very first thing JVM (Java Virtual Machine) seeks is the original main() method.
+No, we cannot override main method of java because a static method cannot be overridden.
+
+==================================Singly linked===================================================================== 
+=>Singly linked:- singly linked list is a set of nodes where each node has two fields ‘data’ and ‘Address’. The ‘data’ 
+field stores actual piece of information and ‘Address’ field is used to point to next node. Basically the
+‘Address’ field stores the address of the next node.
+
+======================================Why is Java platform independent================================================= 
+=>Because we can write java code in one system run on another system. Java does not compile into machine code,
+  it compiles into byte code and it will run or interpreted using JVM( java virtual machine). Which makes java platform independent.
+
+

@@ -1,0 +1,182 @@
+=>Constructor:- Constructor is a block(similar to method) having same as that of class name.
+->constructor does not have any return type not even void, the only modifiers applicable for constructor are, public , private, protected and default.
+->it execute automatically when we create an object. type of constructor-> Default, user define, parametralized constructor.
+========================class and object===============================================
+=>Object:-Object is a real world entity, Object is an instance of a class.Object is created through new keyword
+         -There are many ways to create object in java such as new keyword, newInstance() method, clone() method, factory method and deserialization
+
+=>class:-Class is a blueprint or template from which objects are created.Class is a group of similar objects,Class is a logical entity.
+       -Class is declared using class keyword 
+================static and non-static =============================
+=>static :- In the static method, the method can only access only static data members and static methods of another class or the same 
+   class but cannot access non-static methods and variables
+-The static method cannot be overridden because of early binding.
+-In the static method, less memory is used for execution because memory allocation happens only once because the static keyword fixed a particular memory
+
+=>Non-static:-In the non-static method, the method can access static data members and static methods as well as non-static members and 
+              methods of another class or the same class.  The non-static method can be overridden because of runtime binding.
+-In the non-static method, much memory is used for execution because here memory allocation happens when the method is invoked and the memory is allocated every time when the method is called.
+
+===========================class and interface =============================================
+=>Class.
+->The keyword used to create a class is “class”, Classes do not support multiple inheritance., It can be inherited from another class.
+->It can be inherited by another class using the keyword ‘extends’, It can contain constructors., It cannot contain abstract methods.
+->Variables and methods in a class can be declared using any access specifier(public, private, default, protected).
+=>Interface.
+->The keyword used to create an interface is “interface”, interface supports multiple inheritance., It cannot inherit a class.
+->It can be inherited by a class by using the keyword ‘implements’ and it can be inherited by an interface using the keyword ‘extends’.
+->It cannot contain constructors.
+
+=>Association:-
+Aggregation:- It is a special form of Association- It represents Has-A’s relationship.
+It is a unidirectional association i.e. a one-way relationship. For example, a department can have students but vice versa is not possible and thus unidirectional in nature.In Aggregation, both entries can survive individually which means ending one entity will not affect the other entity.
+
+Composition:- Composition is a restricted form of Aggregation in which two entities are highly dependent on each other.  
+It represents part-of relationship.
+In composition, both entities are dependent on each other.
+When there is a composition between two entities, the composed object cannot exist without the other entity.
+
+=>Inheritance:- Inheritance in Java is a mechanism in which one object acquires all the properties and behaviors of a parent object.
+                Inheritance represents the IS-A relationship which is also known as a parent-child relationship.
+
+=>multiple inheritance is not supported, reason for example- =>When you extend Thread class, we can’t extend any other class which we require. 
+  Java does not allow inheriting more than one class). When we implement Runnable, 
+   we can save a space for our class to extend any other class in future.' 
+
+=>Polymorphysm:-one method having multiple form. (e.g- define a common interface or base class that multiple related classes can implement or inherit)
+  .Compile time polymorphysm(static polymorphysm-Method overloading).handle by compiler.
+  .RunTime polymorphysm(Dynamic polymorphysm-Method Overriding)handle by jvm.
+=>Overriding:-When the method signature (name and parameters) are the same in the superclass and the child class, it's called overriding.
+=>Overloading:- When two or more methods in the same class have the same name but different parameters, it's called overloading.
+
+=>Encapsulation:- Encapsulation is to hide the variables or something inside a class, preventing
+                 unauthorized parties to use. So the public methods like getter and setter access it and the other classes
+                  call these methods for accessing
+=>Abstraction:- Abstraction is details hiding, Data Abstraction deals with exposing interface to the user and hiding the details of implementation.
+
+=>Abstract class and Interface ?-> both can conation abstract method, we cannot create an instance of abstract class and interface.
+===> Abstract class:- restricted class that cannot be used to create objects,to provide a common definition of a base class that multiple derived classes can share
+========================================Acess Modifires==========================================================
+=> Private:- private modifier is only within the class. It cannot be access from outside the class.
+   Public:- public modifier is everywhere. It can be access from within the class, outside the class, within the package and outside the package.
+   Protected:- protected modifier is within the package and outside the package through child class.
+   Default:-default modifier is only within the package. It cannot be access from outside the package.
+=>Static keyword -: The static keyword in Java is mainly used for memory management,used to share the same variable or method of a given class. 
+                    we can apply static keywords with variables, methods, blocks.
+=============================================Marker Interface===========================================================
+=>An interface that does not contain methods, fields, and constants is known as marker interface.
+  e.g-Serializable and Cloneable interfaces are the example of marker interface.  
+Why-> provides run-time type information about objects, so the compiler and JVM have additional information about the object
+  
+==============================Wrapper Class==========================================================================
+wrapper class in Java provides the mechanism to convert primitive into object and object into primitive.
+autoboxing and unboxing feature convert primitives into objects and objects into primitives automatically.
+Primitive-Type -- Wrapper-class
+--------------------------------
+boolean	           Boolean
+char	           Character
+byte	           Byte
+short	           Short
+int	           Integer
+float	           Float
+double	           Double
+===================================Singleton=================================================
+=> only single instance should be created and single object can be used by all other classes.
+Advantage:-Saves memory because object is not created at each request. Only single instance is reused again and again.
+Use:-Singleton pattern is mostly used in multi-threaded and database applications. It is used in logging, caching, thread pools
+How to create:- 1.Static member, 2.Private constructor, 3.Static factory method
+class A{  
+ private static A obj=new A(); //instance will be created at load time  
+ private A(){}  
+   
+ public static A getA(){  
+  return obj;  
+ }  
+  
+ public void doSomething(){  
+ //write your code  
+ }  
+}  
+=================================Enum=====================================================
+Enum:- enum is a special "class" that represents a group of constants (unchangeable variables, like final variables).
+
+Why use:- We use enums for constants, i.e., when we want a variable to have only a specific set of values
+
+=======================================Final, Finally, Finalize===================================================================
+
+Final :- final is the keyword and access modifier which is used to apply restrictions on a class, method or variable.Final 
+         keyword is used with the classes, methods and variables.Final method is executed only when we call it.
+
+finally:- finally is the block Exception Handling to execute the important code whether the exception occurs or not.
+         Finally block is always related to the try and catch block in exception handling.Finally block is executed as soon as the 
+          try-catch block is executed.It's execution is not dependant on the exception.
+
+finalize:- finalize is the method in Java which is used to perform clean up processing just before object is garbage collected.
+           finalize() method is used with the objects.finalize method is executed just before the object is destroyed.
+
+=====================================================Memory Management======Jvm Architecture======================= 
+=>major concepts in Java Memory Management :
+->JVM Memory Structure
+->Working of Garbage Collector
+
+=>When we compile a .java file, .class files(contains byte-code) with the same class names present in .java file are generated by the Java compiler. This .class file goes into Class Loader, 
+It is mainly responsible for three activities. 
+=>Loading -> Class loader reads the “.class” file, generate the corresponding binary data and save it in the method area. For each “.class” file,
+=>Linking ->Linking Performs verification, preparation, and resolution.
+ *verification:- It ensures the correct-ness of the .class file i.e. it checks whether this file is properly 
+               formatted and generated by a valid compiler or not. If verification fails, we get run-time exception java.lang.VerifyError.
+ *Preparation: JVM allocates memory for class static variables and initializing the memory to default values.
+ *Resolution: It is the process of replacing symbolic references.
+
+=>Initialization: 
+  *Bootstrap class loader:- its capable of loading trusted classes. It loads core java API classes present in the “JAVA_HOME/jre/lib” directory.
+  *Extension class loader:- It loads the classes present in the extensions directories “JAVA_HOME/jre/lib/ext”(Extension path).
+  *Application class loader: It is a child of the extension class loader. It is responsible to load classes from the application classpath.
+                             It internally uses Environment Variable which mapped to java.class.path.
+=>JVM Memory :- 1.Method area: In the method area, all class level information like class name, immediate parent class name, 
+                               methods and variables information etc. are stored, including static variables.
+                2.Heap area: Information of all objects is stored in the heap area.
+                3.Stack area: For every thread, JVM creates one run-time stack which is stored here.
+                4.PC Registers: Store address of current execution instruction of a thread.
+=>Execution Engine : *Interpreter: interprets the bytecode line by line and then executes. 
+                     *ust-In-Time Compiler(JIT) : It is used to increase the efficiency of an interpreter.
+                     *Garbage Collector: It destroys un-wanted objects.
+
+============================>How do you manage memory leakage in your java application?====================================
+
+->In Java uses an automatic memory management system called a garbage collector.
+=>What ismemory leakage:-  Memory leakage is a situation where there are objects present in the heap that are no longer used, 
+                         but the garbage collector is unable to remove them from memory.
+=> Kaise Rok skte hai(how to Preventing Memory leakage):-
+                       1. Do not create unnecessary objects. 
+                       2. Do not store a massive amount of data in the session.
+                       3. Do not use the System.gc() method.
+                       4. Always close the ResultSet, Statements, and Connection objects in the finally block.
+
+=>Using Eclipse Memory Leak Warnings: If we are using the Eclipse to develop a Java application, 
+                                      eclipse regularly shows the waring and errors whenever it encounters any causes of memory leak.
+
+======================================Why is Java platform independent================================================= 
+=>Because we can write java code in one system run on another system. Java does not compile into machine code,
+  it compiles into byte code and it will run or interpreted using JVM( java virtual machine). Which makes java platform independent.
+
+==================================Serialization,Deserialization ==========================================================
+
+=>Serialization:- Data serialization is the process of converting an object into a stream of bytes to more easily save or transmit it.
+                Method:- writeObject() method of ObjectOutputStream class.
+=>Deserialization:- is the process of reconstructing the object from the serialized state. It is the reverse operation of serialization 
+                Method:- readObject() method of ObjectInputStream class.
+
+========================================Data Type========================================================
+
+Primitive data types - includes byte, short, int, long, float, double, boolean and char
+Non-primitive data types - such as String, Arrays and Classes.
+=>Data Type Size
+   byte	 -> 1 byte
+   short -> 2 bytes
+   int   -> 4 bytes
+   long  -> 8 bytes
+   float -> 4 bytes
+   double-> 8 bytes
+   boolean->1 bit
+   char   ->2bytes

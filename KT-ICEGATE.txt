@@ -1,0 +1,36 @@
+Hi, My self karmvir, i'm from bihar, currently i'm working infosys, my payroll company wolkingtree.
+my role in this company as java developer, currently i'm wokring core java, spring boot, Rest API. 
+My responsbility- what ever task assign through jira tickets,according to we worked on that, we analized the requrement and build the requrement. 
+and after building merge the code whatever branch created on bitbucket. deploy the project in testing enveroment. 
+after deplyment, coordinate with testing team. whatever bug rased through testing team. resolved according to that. 
+and update giving  daily wise through scrum call. scrum call taking project manager and client side scrum master.
+Basically i'm wokring Indian gov. project.
+ICEGATE:
+Importer and Exporter (Customs Depart. / Min. Of Finance)
+
+Import: Bill of Entry (BE)
+Export: Shipping Bill (SB)
+
+Custom Duty on BE.
+TRADE USERS: (LAND/ SEA/ AIR) CARGO
+
+1. DGFT ( Director general of Foreign trade) -> License (IEC Number)
+2. Get Icegate ID (Based on IEC) and digital signature
+3. Now you can do import/ export -> Message based Filing..
+
+There are 180 + International messages used across the world  with respect trade. e.g. ETP.
+Every message divided by two part...inbound and outbound.
+
+Import -> File a message -> Message is processed ( header, footer, digital signature)/ IEC/ Digital Signature -> Processed -> Saved in ICES DB 
+                -> Processed -> Positive or negative ACKNOWLEDGEMENT is generated and sent to user via OTP/ email.
+
+Shipment In (B.E) -> Custom Duty -> epayment Module in Icegate (integration banking integration with 27 banks, RBI..)
+Registration -> Message Filing -> pay Custom Duty
+
+Servers -> TCS (SI Team)
+Application -> Infosys, we have some local DB as well
+Database (NIC) -> ICES(International Credential Evaluation Service) team
+
+Track 01 -> Old Icegate (JSP, Struts, Spring, Apache...)/ Middleware (Web methods, GXS) -> EDI Electronic data exchange
+Track 02 -> New icegate ( Drupal, Spring, Microservice, Open shift, Solace)
+

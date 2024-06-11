@@ -1,0 +1,118 @@
+=>Collection:- Collection is interface. =>Collections is a utility class ->both found in (java. util. package)
+
+=>comparable
+.we can sort the collection on the basis of a single element such as id, name, and price.
+.Comparable provides compareTo() method to sort elements.
+.We can sort the list elements of Comparable type by Collections.sort(List) method.
+=>comparator
+.we can sort the collection on the basis of multiple elements such as id, name, and price etc.
+.Comparator provides compare() method to sort elements.
+.We can sort the list elements of Comparator type by Collections.sort(List, Comparator) method
+===============================================================================================
+TreeMap:- does not allow null keys but can have multiple null values. HashMap allows heterogeneous elements because it does not perform sorting on keys.
+          For comparing keys, compare or compareTo() is used, time complexity is Order of (log n)
+
+=>HashMap-> HashMap is an implementated class of map interface, HashMap underline data structure is hashtable.
+           .HashMap store the data key-value paire, Each key-value pair is known as entry.
+           .key should be always unique but value can be dupliate, HashMap contaion max one null value in key but it can store multiple null value
+           .HashMap does not follw sorting order and insertion order, HashMap non-synchronized data structure.
+=>HahsTable -> Hash table direct implemented class of map interface, Hash table are synchronized data structure.
+              Hashtable ht = new Hashtable();
+               ht.put(101, "Ram");
+->HashTable default capacity 11. hash code is a unique integer value this is generated for every object by jvm.
+. jo bhi mera key rhega, uska hashcode value get karwa lenge, uska modulus 11 kar denge, jo bhi reminder aaayega wo mera index position hoga.
+ Hashcode % 11 = reminder
+  e.g-> 101 % 11 =7.   ( 7 number index pe sotre ho jayega, suppose 7 index pe pehle se koi element hai,us situation ko hash-collision bolte h,
+(Hash-collision is the situatuon when multiple data share the same index value) isko khtm krne karne ke liye hum linkedlist ka use karenge.
+================================================ConcurrentHashMap==================================================================================== ===
+=>ConcurrentHashMap: ConcurrentHashMap is a class which implements the ConcurrentMap interface. It uses Hashtable, underlined data structure. As we know, while dealing with thread in our application HashMap is not a good choice because of the performance issue. To resolve this issue, we use ConcurrentHashMap in our application.  ConcurrentHashMap is thread-safe therefore multiple threads can operate on a single object without any problem. In ConcurrentHashMap, the Object is divided into a number of segments according to the concurrency level. By default, it allows 16 thread to read and write from the Map without any synchronization. In ConcurrentHashMap, at a time any number of threads can perform retrieval operation but for updating in the object, the thread must lock the particular segment in which the thread wants to operate.
+
+===========================What happens if we put a key object in a HashMap===================================================
+
+=>If an existing key is passed then the previous value gets replaced by the new value
+
+=====================================Iterator and ListIterator===========================================================================
+=>Interator:-We can get iterator cursor by iterator method, iterator cursor can be used with only collection object.
+             iterator method (hashNext(), next(), remove() ), by using iterator we can retrive the element only forword direction.
+=>ListIterator :- we can get listIterator cursor by listIterator method, listIterator can be used with list implemented class i.e- ArrayList, LinkList, vector,stack
+                  listIterator method( hashNext(), next(), hashPrevious(), previous(), remove(), set())
+                  by using listIterator we can retrive the element in forword and backword direction.
+========================================ArrayList and LinkList================================================================ 
+=>ArrayList:-(DEFAULT_CAPACITY- 10)- Arraylist acts as list, the underline data structure of array list is growable or resizable array.
+              Arraylist are good for retrival operation.
+=>LinkList:- Linklist acts as list, the underline data structure of linklist is doublylink list or circular linklist.
+              linklist are good for insertion or deletion operations.
+Time complexity:-  singly linked list, the time complexity for inserting and deleting an element from the list is O(n). Order of N
+ ==============    doubly-linked list, the time complexity for inserting and deleting an element is O(1) order of 1.
+========================================Set and List =======================================================================================
+->List is an index based data structure, list can store duplicate element, list store number of null value, list follow the insertion order.
+   we can iterate(get) the list element by interator and listIterator.
+->Set is not index based data structure, it store the data according to the hash code value, set does not allow to store duplicate element,
+  set can store only one null value, set does not follow insertion order, we can iterate the set element by iterator.
+
+==================================Singly linked===================================================================== 
+=>Singly linked:- singly linked list is a set of nodes where each node has two fields ‘data’ and ‘Address’. The ‘data’ 
+field stores actual piece of information and ‘Address’ field is used to point to next node. Basically the
+‘Address’ field stores the address of the next node.
+
+========================================Stack===========================================================
+
+=>Stack class is based on the basic principle of last-in-first-out. In addition to the basic push and pop operations, the class provides three more functions of empty, search, and peek.
+
+===================================Serializable, Cloneable,Runnable =============================================================================
+
+Serializable: It is a marker interface that classes must implement if they are to be serialized and deserialized.
+Cloneable: This is an interface in Java which needs to be implemented by a class to allow its objects to be cloned.
+Runnable is an interface that is to be implemented by a class whose instances are intended to be executed by a thread. There are two ways to start a new Thread – Subclass Thread and implement Runnable
+
+
+================================> Hashing techniques:==========================================================
+=> Hashing techniques:-
+technique for mapping data to a secret key that can be used as a unique identifier for data.
+HashMap<Key, Value> is an easy way to implement hashing in java,HashMap works on hashing algorithm and uses hashCode() and equals()
+.=>way to implement of Hashing.
+HashTable (A synchronized implementation of hashing)
+
+   Hashtable<Integer, String> hm = new Hashtable<Integer, String>();
+          hm.put(1, "Geeks");
+          hm.put(12, "forGeeks");
+   System.out.println(hm);
+
+==>>equals verifies the equality of two objects. It’s default implementation 
+simply checks the object references of two objects to verify their equality. By default, 
+two objects are equal if and only if they refer to the same memory location.
+ Most Java classes override this method to provide their own comparison logic.
+
+==>>hashcode() – returns a unique integer value for the object in runtime. By default, 
+Integer value is derived from the memory address of the object in the heap (but it’s not mandatory).
+ The object’s hash code is used for determining the index location when this object 
+needs to be stored in some HashTable like data structure.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

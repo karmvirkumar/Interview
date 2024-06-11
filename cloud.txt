@@ -1,0 +1,130 @@
+Apache Kafka:- Apache kafka is like a communication system that helps diffrent parts of a computer system exchnage data by
+               publishing and subscribing to topics.
+purpose of kafka use:- to build real time streaming data pipelines and real-time streaming application.
+==========================Feature of Kafka======================================================
+1.Kafka is a messaging system built for high throughput( billions of record ko retrive kr skte hai.)
+2.Kafka can also save the messages to storage and replicate them across the cluster.(replicate-Multiple copy ban ke sotre ho jata hai data node me)
+3.coordination and synchronization with other services, Kafka collaborates with Zookeeper.
+4.Kafka Includes a replication feature as well.  
+
+=================================How is Kafka better from them===============================================
+=>Scalable: devices is used to partition and stream line the data thereby, scaling up the storage capacity.
+=>Faster: Thousands of clients can be served by a single Kafka broker as it can manage megabytes of reads and writes per second.
+=>Durability and Fault-Tolerant: persistent and tolerant to any hardware failures by copying the data in the clusters.
+
+==================================Major components of Kafka==============================================
+Topic:-Topic is a category or feed in which records are saved and published.Topics are used to organize all of Kafka's records.
+producer:- producer is a data source for one or more Kafka topics that optimizes, writes, and publishes messages.
+Consumer:- Data is read by consumers by reading messages from topics to which they have subscribed. Consumers will be divided into 
+         groups. Each consumer in a consumer group will be responsible for reading a subset of the partitions of each subject to which they have subscribed.
+Broker:-broker is a server that works as part of a Kafka cluster,cluster is managed and coordinated by brokers using Apache ZooKeeper.
+
+==================================Four core API architecture that Kafka uses=====================================
+Producer API:-Producer API in Kafka allows an application to publish a stream of records to one or more Kafka topics.
+Consumer API:-application can subscribe to one or more Kafka topics using the Kafka Consumer API.
+Streams API:- Streams API allows an application to use a stream processing architecture to process data in Kafka.
+Connector API:-Connector API connects Kafka topics to applications.
+
+=======================================What do you mean by zookeeper in Kafka and what are its uses?====================== 
+=>ZooKeeper is a naming registry for distributed applications as well as a distributed, open-source configuration and synchronization service. 
+   It keeps track of the Kafka cluster nodes' status, as well as Kafka topics.
+   ZooKeeper is used by Kafka brokers to maintain and coordinate the Kafka cluster
+=========================================Installation======================================================
+1.Download kafka zip file,
+2. Extract file, 
+3. Start Zookeeper 
+4. Start Kafka Server.
+================================Use Kafka With console==============================================
+1.Create new topic with kafka-topics
+2.Produce example message with kafka-console-producer
+3.Consume the message with kafka-console-consumer. these three tools uses in kafka.
+
+Commands:- STEP 2: START THE KAFKA ENVIRONMENT
+# Start the ZooKeeper service
+$ bin/zookeeper-server-start.bat config/zookeeper.properties
+
+# Start the Kafka broker service
+$ bin/kafka-server-start.bat config/server.properties =>open diffrent terminal
+
+STEP 3: CREATE A TOPIC TO STORE YOUR EVENTS
+$ bin/kafka-topics.bat --create --topic user-events --bootstrap-server localhost:9092
+
+STEP 4: WRITE SOME EVENTS INTO THE TOPIC
+$ bin/kafka-console-producer.bat --topic user-events --bootstrap-server localhost:9092
+
+STEP 5: READ THE EVENTS
+$ bin/kafka-console-consumer.bat --topic user-events --from-beginning --bootstrap-server localhost:9092
+
+===========================================Real time project====================================================
+1. Create microservices i.e spring boot aplication, and create kafka configuration class here all the configuration uses.
+   we annotate the class @Configuration annoation after that create Topic. that means Bean. 
+2. and one another class is create Kafka service that class annoated @Service annoation, in this class create a variable kafkaTemplate
+   this template through send the message topic and data key value paire.
+3. And add some configuration in application.properties file. like- server port, bootstrap-server, group-id, 
+   =>In Consumer service use annotation @KafkaListener  just pass the topic name and grupId.- @KafkaListener(topics="", groupId="")
+
+================================================Docker======================================================================
+
+Docker:- Docker is an open-source platform where you can containeriz your application.
+DockerImage :- Docker Image is an executable package of software that includes everything needed to run an application.
+               =>Docker image is the Docker container’s source code.
+Container:- Container is a virtual environment that bundles application code with all the dependencies required to run the application.
+              =>Docker container is the instance of the Docker image.
+
+Commands:- Docker Run -> $ docker run <image_name>
+           Docker Pull -> $ docker pull <image_name>
+           Docker PS -> $ docker ps [options..] -show list of all the running containers
+           Docker Stop ->$ docker stop <container_ID>
+           Docker Start -> $ docker start <container_ID>
+           Docker RMI ->docker rmi <image ID/ image name> - delete the image in docker
+           Docker Images -> $ docker images'- show list of all Docker image.
+           Docker Ports (Port Mapping) -> $ docker run -d -p <port_on_host>
+           Docker Login -> $ docker login 
+           Docker push -> $ docker push <Image name/Image ID>
+           Docker Build -> $ docker build -t image_name:tag
+           Docker Restart -> $ docker restart container_name_or_id
+           Stop Multiple Containers -> $ docker stop container1 container2 container3
+           Docker Commit command -> $ docker commit container_name_or_id new_image_name:tag
+
+=====================================Tomcat======Glassfish and JBoss:=========================================- 
+Tomcat:- Tomcat is just a servlet container, i.e. it implements only the servlets and JSP specification.
+
+step:-0. Add depedency in pom.xml file -> (spring-boot-starter-tomcat), 
+       ->We need to deploy WAR file so change the package type to WAR in pom.xml file.(<packaging>war</packaging>)
+Step:- 1.Create a WAR file -Run As -> Maven Build
+Step:- 2.Write clean install command in the Goals label.
+Step3:-3.When the WAR file successfully created, it shows the WAR file path and a message BUILD SUCCESS in the console. target folder of the application.
+Step:-4.Download and install the Apache Tomcat Server, if not installed.
+step:5.Open cmd run the commands-> startup
+              C:\Cd Program Files\Apache Software Foundation\Tomcat  8.5\bin  
+              C:\Cd Program Files\Apache Software Foundation\Tomcat  8.5\bin>startup 
+
+Glassfish and JBoss:- Glassfish and JBoss are full Java EE servers (including stuff like EJB, JMS
+
+
+========================================>how to change embedded server in spring boot???===============================================
+Step1.Adding Dependencies -(spring-boot-starter-undertow(अंडरटो)- Undertow is lightweight and high-performance web server from JBoss.
+Step2.spring-boot-starter-web comes with Embedded Tomcat. We need to exclude the dependency.
+Step3.Changing the Default Server Port.
+Step4.Configuring Server-Specific Properties. what ever server used. depedens on requrement.
+
+=>How do I enable cache in Spring Boot?
+  - Add Depedency (Spring-Boot-Satrter-Cache)
+  -We can enable caching in the Spring Boot application by using the annotation @EnableCaching
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
